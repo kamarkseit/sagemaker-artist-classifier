@@ -73,7 +73,7 @@ Matplotlib, Pandas
 
 ## Model upload S3 link:
 
-s3://sagemaker-artist-classifier/model.tar.gz
+https://sagemaker-artist-classifier.s3.us-east-2.amazonaws.com/model.tar.gz
 
 ## Further Improvements:
 

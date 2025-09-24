@@ -36,21 +36,22 @@ Inference: Keras TFSMLayer for SavedModel format
 
 ## Repository Structure:
 
+```
+sagemaker-artist-classifier/
 ├── README.md
-├── train.py                  # Model architecture and training logic
-├── Launcher.ipynb               # Launches tuning job in SageMaker
-├── inference_tests.ipynb        # Loads model and runs predictions
-├── model/                       # Extracted saved model
-│   └── model.tar.gz
-├── test_images/                 # Folder of images for testing
+├── train.py
+├── Launcher.ipynb
+├── inference_tests.ipynb
+├── test_images/
 └── utils/
-    └── quarter_images.ipynb         # Image quartering function
+    └── quarter_images.ipynb
+```
 
 ## Tests Results:
 
 | FolderName   | Confidence | Predicted Class |
 |:-------------|:----------:|----------------:|
-| test_class0  |  0.69      |   1             |
+| test_class0* |  0.69      |   1             |
 | test_class0  |  0.89      |   0             |
 | test_class0  |  0.79      |   0             |
 | test_class0  |  0.95      |   0             |
@@ -58,7 +59,7 @@ Inference: Keras TFSMLayer for SavedModel format
 | test_class1  |  0.77      |   1             |
 | test_class1  |  0.83      |   1             |
 | test_class1  |  0.77      |   1             |
-First batch was incorrectly predicted due to images' yellow background that the model assosiated with class1 artist.
+*First batch was incorrectly predicted due to images' yellow background that the model assosiated with class1 artist.
 
 ## Requirements:
 
@@ -72,3 +73,28 @@ Matplotlib, Pandas
 
 ## Model upload S3 link:
 
+s3://sagemaker-artist-classifier/model.tar.gz
+
+## Further Improvements:
+
+### Model Hosting and Deployment
+
+Set up a real-time SageMaker endpoint for live predictions
+
+Add a Flask or FastAPI wrapper for local serving and integration
+
+### Enhanced Model Architecture
+
+Experiment with transfer learning using pretrained models (e.g., ResNet, EfficientNet)
+
+### Evaluation and Metrics
+
+Include precision, recall, F1-score, and confusion matrix visualizations
+
+Compare performance across tuning jobs and log results
+
+### Dataset Expansion
+
+Add more diverse artwork categories or styles
+
+Incorporate metadata (e.g., artist, medium, era) for multi-label classification
